@@ -1,3 +1,6 @@
+import isWorldLoaded = World.isWorldLoaded;
+import {logger} from "./loging";
+
 export class Baritone{
     constructor() {}
     settingChanger(setting: string, value:any){
@@ -23,5 +26,20 @@ export class waypoint{
     }
     goto(){
         Chat.say('#goto ' + this.x + ' ' + this.y + ' ' + this.z)
+    }
+    setGoal(){
+        Chat.say('#goal ' + this.x + ' ' + this.y + ' ' + this.z)
+    }
+    elytraTo(){
+        if(isWorldLoaded() == true){
+            if(World.getDimension()=="minecraft:the_nether"){
+                this.setGoal()
+                Chat.say('#elytra')
+            }else{
+                logger('Not in the nether dimension')
+            }
+        }else{
+            logger('World is still loading')
+        }
     }
 }
