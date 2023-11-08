@@ -6,8 +6,8 @@ export class Baritone{
     settingChanger(setting: string, value:any){
         Chat.say('#'+setting+' '+value) //Please make sure that it's used only with either floats or booleans
     }
-    goto(x:int,y:int,z:int,relOrNo:boolean) {
-        if (relOrNo == true){
+    goto(x:int,y:int,z:int,relative:boolean) {
+        if (relative == true){
             Chat.say('#goto ~' + x + ' ~' + y + ' ~' + z)
         }else{
             Chat.say('#goto ' + x + ' ' + y + ' ' + z)
